@@ -1,12 +1,21 @@
 // Tableau des tâches
-let todo = [];
+let todoListe = [];
 
 // Fonction pour ajouter une tâche
-function addTodo(buttonAdd) {
+function addTodo() {
 
-};
+    const newTache = document.getElementById('input').value;
+    if (newTache !== "") {
+        todoListe.push(newTache);
+        document.getElementById('input').value = "";
+    }
+    else {
+        alert("Veuillez saisir une tache");
+    }
 
-// Event listener pour ajouter une tâche quand button click
+}
+
+// Event listener pour ajouter une tache quand button click
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
 
 // Création du tableau
