@@ -8,6 +8,7 @@ function addTodo() {
     if (newTache !== "") {
         todoListe.push(newTache);
         addTodoToTable(newTache);
+        document.getElementById('inputAdd').value = "";
     }
     else {
         alert("Veuillez saisir une tache");
