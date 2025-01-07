@@ -2,7 +2,7 @@
     background-color:#3498db;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 8px;
     border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
@@ -16,6 +16,19 @@
 
 #buttonAdd:active {
     background-color: #184f74;
+}
+
+#inputAdd {
+    padding: 5px;
+    border: 3px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+#inputAdd:focus {
+    outline: none;
+    border: 3px solid #3498db;
 }
 
 /* Styles généraux pour les tables */ 
