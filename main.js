@@ -57,9 +57,16 @@ function addTodoToTable(newTache) {
     const tdNumb = document.createElement('td');
     const thDone = document.createElement('th');
     const tdLabel = document.createElement('td');
+
+    const inputDone = document.createElement('input');
+
     tbody.appendChild(trTodo);
     trTodo.appendChild(tdNumb);
     trTodo.appendChild(thDone);
+
+    inputDone.type = 'checkbox';
+    thDone.appendChild(inputDone);
+    
     trTodo.appendChild(tdLabel);
 
     tdNumb.textContent = todoListe.length;
