@@ -1,6 +1,6 @@
 /* Styles généraux pour les tables */ 
 table {   
-width: max-content; /* La table occupe la totalité de la largeur de son conteneur parent */ 
+width: 100%; /* La table occupe la totalité de la largeur de son conteneur parent */ 
 border-collapse: separate; /* Chaque cellule possède sa propre bordure individuelle */ 
 border-spacing: 0; /* Suppression de tou espacement entre les cellules de la table */   
 margin: 20px 0; /* Ajout d'une marge de 20px au-dessus et en dessous de la table pour l'espacer des éléments adjacents */   
@@ -13,7 +13,7 @@ table th {
 background-color: #555; /* Définit une couleur de fond sombre (grise) pour les en-têtes des colonnes */   
 color: white; /* La couleur du texte dans les en-têtes est mise en blanc pour contraster avec le fond sombre */ 
 padding: 10px 15px; /* Ajout d'un espacement interne pour éloigner le texte des bordures des entêtes */   
-border: 1px solid #666; /* Bordure grise foncée d'1 pixel autour de chaque en-tête */ 
+border: 1px solid #666; /* Bordure grise foncée d'1 pixel autour de chaque en-tête */
 } 
 
 /* Styles pour les cellules de la table */ 
@@ -30,15 +30,14 @@ background-color: #ddd; /* Assombrissement léger du fond de la cellule survolé
 
 /* Styles pour l'en-tête (caption) de la table */ 
 caption { 
-margin: 10px; /* Espacement intérieur autour du texte du titre (caption) */ 
-background-color: blue; /* Couleur de fond bleue pour faire ressortir le titre de la table 
-*/ 
+padding: 10px; /* Espacement intérieur autour du texte du titre (caption) */ 
+background-color: #3498db; /* Couleur de fond bleue pour faire ressortir le titre de la table */ 
 color: white; /* Couleur de texte blanche pour contraster avec le fond bleu */   
 font-size: large; /* Augmentation de la taille du texte pour mettre en évidence le titre */   
 font-weight: bold; /* Le texte du titre est rendu gras pour attirer l'attention */   
 text-shadow: 1px 1px 1px #666; /* Une ombre légère est ajoutée derrière le texte pour lui donner de la profondeur et du relief */ 
-text-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1) inset; /* Une ombre interne est appliquée en bas du titre pour donner l'impression qu'il est "enfoncé" */ 
-border: #2980b9; /* Une bordure bleue foncée est ajoutée en bas pour séparer visuellement le titre du reste de la table */ 
+box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1) inset; /* Une ombre interne est appliquée en bas du titre pour donner l'impression qu'il est "enfoncé" */ 
+border-bottom: 2px solid #2980b9; /* Une bordure bleue foncée est ajoutée en bas pour séparer visuellement le titre du reste de la table */ 
 } 
 
 /* Effet de survol pour l'en-tête de la table */ 

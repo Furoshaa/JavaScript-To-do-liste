@@ -23,7 +23,6 @@ function addTodoToTable(newTache) {
     if (!table) {
         //Creation du tableau HTML
         table = document.createElement('table');
-        table.style.border = '1px solid black';
         document.body.appendChild(table);
 
         //Creation de la caption du tableau
