@@ -66,3 +66,10 @@ function addTodoToTable(newTache) {
 
 // Event listener pour ajouter une tache quand button click
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
+
+//Event listener pour ajouter une tache quand touche entrée
+document.getElementById('inputAdd').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        addTodo();
+    }
+});
