@@ -55,22 +55,20 @@ function addTodoToTable(newTache) {
 
     const trTodo = document.createElement('tr');
     const tdNumb = document.createElement('td');
-    const thDone = document.createElement('th');
+    const tdDone = document.createElement('td');
     const tdLabel = document.createElement('td');
 
     const inputDone = document.createElement('input');
 
     tbody.appendChild(trTodo);
     trTodo.appendChild(tdNumb);
-    trTodo.appendChild(thDone);
-
-    inputDone.type = 'checkbox';
-    thDone.appendChild(inputDone);
-    
+    trTodo.appendChild(tdDone);
+    tdDone.appendChild(inputDone);
     trTodo.appendChild(tdLabel);
 
     tdNumb.textContent = todoListe.length;
-
+    inputDone.type = 'checkbox';
+    inputDone.id = todoListe.length;
     tdLabel.textContent = newTache;
 
 };

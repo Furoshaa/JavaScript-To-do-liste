@@ -56,12 +56,12 @@ border: 1px solid #ddd; /* Bordure gris clair d'1 pixel autour de chaque cellule
 } 
 
 table td:first-child {
-    width: 10px;
+    width: 5px;
     text-align: center;
 }
 
-table td:nth-child(1) {
-    width: 15px;
+table td:nth-child(2) {
+    width: 5px;
 }
 
 /* Effet de survol pour les cellules de la table */ 
@@ -85,6 +85,6 @@ border-bottom: 2px solid #2980b9; /* Une bordure bleue foncée est ajoutée en b
 /* Effet de survol pour l'en-tête de la table */ 
 caption:hover { 
 color: #2980b9; /* Lors du survol du titre, sa couleur de fond devient légèrement plus foncée pour indiquer l'interaction */ 
-} 
+}
 
     
