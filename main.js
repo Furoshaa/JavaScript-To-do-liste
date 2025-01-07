@@ -40,8 +40,6 @@ function addTodoToTable(newTache) {
         thNumb.textContent = 'Numéro';
         thLabel.textContent = 'Libellé';
 
-        thNumb.style.width = '10px';
-
         table.appendChild(trHead);
         trHead.appendChild(thNumb);
         trHead.appendChild(thLabel);

@@ -55,6 +55,11 @@ padding: 10px 15px; /* Espacement intérieur pour éloigner le texte des bordure
 border: 1px solid #ddd; /* Bordure gris clair d'1 pixel autour de chaque cellule pour délimiter les cellules */ 
 } 
 
+table td:first-child {
+    width: 10px;
+    text-align: center;
+}
+
 /* Effet de survol pour les cellules de la table */ 
 table td:hover { 
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombre douce appliquée à la cellule lorsqu'elle est survolée, donnant un effet de "soulèvement" */ 
