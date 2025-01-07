@@ -4,10 +4,9 @@ let todoListe = [];
 // Fonction pour ajouter une tâche
 function addTodo() {
 
-    const newTache = document.getElementById('input').value;
+    const newTache = document.getElementById('inputAdd').value;
     if (newTache !== "") {
         todoListe.push(newTache);
-        document.getElementById('input').value = "";
         addTodoToTable(newTache);
     }
     else {
@@ -46,27 +45,23 @@ function addTodoToTable(newTache) {
         tr.appendChild(th);
         tr.appendChild(th2);
 
-        const tbody = document.createElement('tbody');
-        table.appendChild(tbody);
-
-        const tr2 = document.createElement('tr');
-        const td = document.createElement('td');
-        const td2 = document.createElement('td');
-        tbody.appendChild(tr2);
-        tr2.appendChild(td);
-        tr2.appendChild(td2);
-
-        tbody.style.display = 'flex';
-        tbody.style.justifyContent = 'center';  // Centrer horizontalement
-        tbody.style.alignItems = 'center';      // Centrer verticalement
-
-        td.textContent = todoListe.length;
-
-        td2.textContent = newTache;
-
     } else {
         console.log("table de base : ", table);
     };
+
+    const tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+
+    const tr2 = document.createElement('tr');
+    const td = document.createElement('td');
+    const td2 = document.createElement('td');
+    tbody.appendChild(tr2);
+    tr2.appendChild(td);
+    tr2.appendChild(td2);
+
+    td.textContent = todoListe.length;
+
+    td2.textContent = newTache;
 
 };
 
