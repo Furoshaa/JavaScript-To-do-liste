@@ -60,6 +60,10 @@ table td:first-child {
     text-align: center;
 }
 
+table td:nth-child(1) {
+    width: 15px;
+}
+
 /* Effet de survol pour les cellules de la table */ 
 table td:hover { 
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombre douce appliquée à la cellule lorsqu'elle est survolée, donnant un effet de "soulèvement" */ 

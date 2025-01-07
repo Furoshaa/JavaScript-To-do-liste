@@ -38,10 +38,12 @@ function addTodoToTable(newTache) {
         const thLabel = document.createElement('th');
 
         thNumb.textContent = 'Numéro';
+        thDone.textContent = 'Terminée';
         thLabel.textContent = 'Libellé';
 
         table.appendChild(trHead);
         trHead.appendChild(thNumb);
+        trHead.appendChild(thDone);
         trHead.appendChild(thLabel);
 
     } else {
@@ -53,9 +55,11 @@ function addTodoToTable(newTache) {
 
     const trTodo = document.createElement('tr');
     const tdNumb = document.createElement('td');
+    const thDone = document.createElement('th');
     const tdLabel = document.createElement('td');
     tbody.appendChild(trTodo);
     trTodo.appendChild(tdNumb);
+    trTodo.appendChild(thDone);
     trTodo.appendChild(tdLabel);
 
     tdNumb.textContent = todoListe.length;
