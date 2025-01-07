@@ -32,18 +32,19 @@ function addTodoToTable(newTache) {
         table.appendChild(caption);
 
         // Ajout des taches dans le tableau
-        const tr = document.createElement('tr');
-        const th = document.createElement('th');
-        const th2 = document.createElement('th');
+        const trHead = document.createElement('tr');
+        const thNumb = document.createElement('th');
+        const thDone = document.createElement('th');
+        const thLabel = document.createElement('th');
 
-        th.textContent = 'Numéro';
-        th2.textContent = 'Libellé';
+        thNumb.textContent = 'Numéro';
+        thLabel.textContent = 'Libellé';
 
-        th.style.width = '10px';
+        thNumb.style.width = '10px';
 
-        table.appendChild(tr);
-        tr.appendChild(th);
-        tr.appendChild(th2);
+        table.appendChild(trHead);
+        trHead.appendChild(thNumb);
+        trHead.appendChild(thLabel);
 
     } else {
         console.log("table de base : ", table);
@@ -52,16 +53,16 @@ function addTodoToTable(newTache) {
     const tbody = document.createElement('tbody');
     table.appendChild(tbody);
 
-    const tr2 = document.createElement('tr');
-    const td = document.createElement('td');
-    const td2 = document.createElement('td');
-    tbody.appendChild(tr2);
-    tr2.appendChild(td);
-    tr2.appendChild(td2);
+    const trTodo = document.createElement('tr');
+    const tdNumb = document.createElement('td');
+    const tdLabel = document.createElement('td');
+    tbody.appendChild(trTodo);
+    trTodo.appendChild(tdNumb);
+    trTodo.appendChild(tdLabel);
 
-    td.textContent = todoListe.length;
+    tdNumb.textContent = todoListe.length;
 
-    td2.textContent = newTache;
+    tdLabel.textContent = newTache;
 
 };
 
