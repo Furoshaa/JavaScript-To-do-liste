@@ -61,6 +61,7 @@ table td:first-child {
 }
 
 table td:nth-child(2) {
+    text-align: center;
     width: 5px;
 }
 
