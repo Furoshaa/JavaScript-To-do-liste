@@ -79,6 +79,11 @@ table td:nth-child(2) {
     width: 5px;
 }
 
+table td:last-child {
+    text-align: center;
+    width: 5px;
+}
+
 /* Effet de survol pour les cellules de la table */ 
 table td:hover { 
 box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ombre douce appliquée à la cellule lorsqu'elle est survolée, donnant un effet de "soulèvement" */ 
