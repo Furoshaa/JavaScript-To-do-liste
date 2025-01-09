@@ -74,6 +74,7 @@ function addTodoToTable(newTache) {
     tdNumb.textContent = todoListe.length;
     inputDone.type = 'checkbox';
     inputDone.id = todoCompleted.length;
+    inputDone.addEventListener('change', changeDone);
     tdLabel.textContent = newTache;
 
     console.log(todoCompleted);
@@ -81,9 +82,14 @@ function addTodoToTable(newTache) {
 };
 
 
-function changeDone() {
+function changeDone(event) {
 
-    
+    const checkbox = event.target;
+    const idCheckbox = checkbox.id;
+
+    todoCompleted[idCheckbox] = checkbox.checked;
+
+    console.log(todoCompleted);
 
 };
 
@@ -97,6 +103,3 @@ document.getElementById('inputAdd').addEventListener('keypress', function (e) {
         addTodo();
     }
 });
-
-var checkbox = document.getElementsByTagName('input').type == 'checkbox'
-checkbox.addEventListener('change', changeDone);
