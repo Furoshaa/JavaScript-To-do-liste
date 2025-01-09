@@ -1,5 +1,7 @@
 // Tableau des tâches
 let todoListe = [];
+let todoCompleted = [];
+
 
 // Fonction pour ajouter une tâche
 function addTodo() {
@@ -8,6 +10,7 @@ function addTodo() {
     if (newTache !== "") {
         todoListe.push(newTache);
         addTodoToTable(newTache);
+        todoCompleted.push(false);
         document.getElementById('inputAdd').value = "";
     }
     else {
@@ -15,6 +18,7 @@ function addTodo() {
     }
 
 }
+
 
 // Fonction pour ajouter la tache au tableau HTML
 function addTodoToTable(newTache) {
@@ -48,6 +52,7 @@ function addTodoToTable(newTache) {
 
     } else {
         console.log("table de base : ", table);
+
     };
 
     const tbody = document.createElement('tbody');
@@ -68,10 +73,20 @@ function addTodoToTable(newTache) {
 
     tdNumb.textContent = todoListe.length;
     inputDone.type = 'checkbox';
-    inputDone.id = todoListe.length;
+    inputDone.id = todoCompleted.length;
     tdLabel.textContent = newTache;
 
+    console.log(todoCompleted);
+
 };
+
+
+function changeDone() {
+
+    
+
+};
+
 
 // Event listener pour ajouter une tache quand button click
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
@@ -82,3 +97,6 @@ document.getElementById('inputAdd').addEventListener('keypress', function (e) {
         addTodo();
     }
 });
+
+var checkbox = document.getElementsByTagName('input').type == 'checkbox'
+checkbox.addEventListener('change', changeDone);
