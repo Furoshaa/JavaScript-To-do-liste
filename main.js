@@ -26,6 +26,39 @@ function addTodoToTable(newTache) {
     let table = document.querySelector('table');
 
     if (!table) {
+        
+        const filter = document.createElement('select');
+        filter.id = 'filterSelect';
+        
+        const options = [
+            ['all', 'Toutes les tâches'],
+            ['completed', 'Tâches terminées'],
+            ['uncompleted', 'Tâches non terminées']
+        ];
+        
+        options.forEach(([value, text]) => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = text;
+            filter.appendChild(option);
+        });
+
+        document.getElementById('buttonAdd').after(filter);
+
+        filter.addEventListener('change', function() {
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const checkbox = row.querySelector('input');
+                if (this.value === 'all') {
+                    row.style.display = '';
+                } else if (this.value === 'completed') {
+                    row.style.display = checkbox.checked ? '' : 'none';
+                } else {
+                    row.style.display = !checkbox.checked ? '' : 'none';
+                }
+            });
+        });
+
         //Creation du tableau HTML
         table = document.createElement('table');
         document.body.appendChild(table);
@@ -114,6 +147,20 @@ function changeDone(event) {
 
 };
 
+function filterTodo(filterType) {
+    const rows = document.querySelectorAll('table tr:not(:first-child)');
+    
+    rows.forEach((row) => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        if (filterType === 'all') {
+            row.style.display = '';
+        } else if (filterType === 'completed') {
+            row.style.display = checkbox.checked ? '' : 'none';
+        } else if (filterType === 'uncompleted') {
+            row.style.display = !checkbox.checked ? '' : 'none';
+        }
+    });
+}
 
 // Event listener pour ajouter une tache quand button click
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
@@ -123,4 +170,8 @@ document.getElementById('inputAdd').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         addTodo();
     }
+});
+
+document.getElementById('filterSelect').addEventListener('change', function(e) {
+    filterTodo(e.target.value);
 });

@@ -31,6 +31,20 @@
     border: 3px solid #3498db;
 }
 
+#filterSelect {
+    padding: 5px;
+    border: 3px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+#filterSelect:focus {
+    outline: none;
+    border: 3px solid #3498db;
+}
+
 /* Styles généraux pour les tables */ 
 table {   
 width: 100%; /* La table occupe la totalité de la largeur de son conteneur parent */ 
@@ -88,4 +102,3 @@ caption:hover {
 color: #2980b9; /* Lors du survol du titre, sa couleur de fond devient légèrement plus foncée pour indiquer l'interaction */ 
 }
 
-    
