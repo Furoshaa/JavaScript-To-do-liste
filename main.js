@@ -73,18 +73,18 @@ function addTodoToTable(newTache) {
         const thNumb = document.createElement('th');
         const thDone = document.createElement('th');
         const thLabel = document.createElement('th');
-        const thDelete = document.createElement('th'); // Nouvelle cellule pour le bouton
+        const thDelete = document.createElement('th');
 
         thNumb.textContent = 'Numéro';
         thDone.textContent = 'Terminée';
         thLabel.textContent = 'Libellé';
-        thDelete.textContent = 'Supprimer'; // Nouvelle cellule pour le bouton
+        thDelete.textContent = 'Supprimer';
 
         table.appendChild(trHead);
         trHead.appendChild(thNumb);
         trHead.appendChild(thDone);
         trHead.appendChild(thLabel);
-        trHead.appendChild(thDelete); // Nouvelle cellule pour le bouton
+        trHead.appendChild(thDelete);
 
     } else {
         console.log("table de base : ", table);
@@ -98,10 +98,10 @@ function addTodoToTable(newTache) {
     const tdNumb = document.createElement('td');
     const tdDone = document.createElement('td');
     const tdLabel = document.createElement('td');
-    const tdDelete = document.createElement('td'); // Nouvelle cellule pour le bouton
+    const tdDelete = document.createElement('td');
 
     const inputDone = document.createElement('input');
-    const deleteButton = document.createElement('button'); // Nouveau bouton
+    const deleteButton = document.createElement('button');
     deleteButton.textContent = '❌';
     deleteButton.onclick = function() {
         deleteTodo(this.closest('tr'));
@@ -112,8 +112,8 @@ function addTodoToTable(newTache) {
     trTodo.appendChild(tdDone);
     tdDone.appendChild(inputDone);
     trTodo.appendChild(tdLabel);
-    trTodo.appendChild(tdDelete); // Ajout de la cellule du bouton
-    tdDelete.appendChild(deleteButton); // Ajout du bouton dans sa cellule
+    trTodo.appendChild(tdDelete);
+    tdDelete.appendChild(deleteButton);
 
     tdNumb.textContent = todoListe.length;
     inputDone.type = 'checkbox';
@@ -174,19 +174,15 @@ function filterTodo(filterType) {
 };
 
 function deleteTodo(row) {
-    if (!row) return; // Protection contre les valeurs null
+    if (!row) return;
     
-    // Récupérer l'index de la ligne
     const index = Array.from(row.parentNode.children).indexOf(row);
-    
-    // Supprimer la tâche des tableaux
+
     todoListe.splice(index, 1);
     todoCompleted.splice(index, 1);
     
-    // Supprimer la ligne du tableau HTML
     row.remove();
     
-    // Mettre à jour les numéros des tâches restantes
     const rows = document.querySelectorAll('tbody tr');
     rows.forEach((row, idx) => {
         row.cells[0].textContent = idx + 1;
