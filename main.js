@@ -26,7 +26,7 @@ function addTodoToTable(newTache) {
     let table = document.querySelector('table');
 
     if (!table) {
-        
+        //Creation du champ filtre
         const filter = document.createElement('select');
         filter.id = 'filterSelect';
         
@@ -45,6 +45,7 @@ function addTodoToTable(newTache) {
 
         document.getElementById('buttonAdd').after(filter);
 
+        //Event listener pour le filtre + fonction
         filter.addEventListener('change', function() {
             const rows = document.querySelectorAll('tbody tr');
             rows.forEach(row => {
@@ -75,11 +76,13 @@ function addTodoToTable(newTache) {
         const thLabel = document.createElement('th');
         const thDelete = document.createElement('th');
 
+        // Ajout des titres dans le tableau
         thNumb.textContent = 'Numéro';
         thDone.textContent = 'Terminée';
         thLabel.textContent = 'Libellé';
         thDelete.textContent = 'Supprimer';
 
+        // Ajout des elements dans l'html
         table.appendChild(trHead);
         trHead.appendChild(thNumb);
         trHead.appendChild(thDone);
@@ -87,10 +90,11 @@ function addTodoToTable(newTache) {
         trHead.appendChild(thDelete);
 
     } else {
+        //Affiche le tebleau deja existantn dans la console
         console.log("table de base : ", table);
-
     };
 
+    //Creation d'une nouvelle todo
     const tbody = document.createElement('tbody');
     table.appendChild(tbody);
 
@@ -101,6 +105,8 @@ function addTodoToTable(newTache) {
     const tdDelete = document.createElement('td');
 
     const inputDone = document.createElement('input');
+
+    // Ajout du bouton deleteTodo
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '❌';
     deleteButton.onclick = function() {
@@ -116,6 +122,8 @@ function addTodoToTable(newTache) {
     tdDelete.appendChild(deleteButton);
 
     tdNumb.textContent = todoListe.length;
+
+    //Ajout de la checkbox
     inputDone.type = 'checkbox';
     inputDone.id = todoCompleted.length;
     inputDone.addEventListener('change', changeDone);
@@ -125,7 +133,7 @@ function addTodoToTable(newTache) {
 
 };
 
-
+// Fonction pour changer le statut de la tache
 function changeDone(event) {
 
     const checkbox = event.target;
@@ -142,7 +150,7 @@ function changeDone(event) {
     }
     */
 
-    
+    // Methode du prof
     const tousLesTD = document.getElementsByTagName('td');
     const identifiantCase = parseInt(idCheckbox) + 1;
     const texteBrut = tousLesTD[(identifiantCase-1) * 3 + 2].innerText;
@@ -155,9 +163,11 @@ function changeDone(event) {
 
     console.log("La checkbox ", checkbox.id, " est cochée : ", checkbox.checked);
     console.log(todoCompleted);
+    
 
 };
 
+// Fonction pour filtrer les taches
 function filterTodo(filterType) {
     const rows = document.querySelectorAll('table tr:not(:first-child)');
     
@@ -173,6 +183,7 @@ function filterTodo(filterType) {
     });
 };
 
+// Fonction pour supprimer une tache
 function deleteTodo(row) {
     if (!row) return;
     
@@ -200,6 +211,7 @@ document.getElementById('inputAdd').addEventListener('keypress', function (e) {
     }
 });
 
+//Event listener pour le filtre
 document.getElementById('filterSelect').addEventListener('change', function(e) {
     filterTodo(e.target.value);
 });
