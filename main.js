@@ -141,16 +141,16 @@ function changeDone(event) {
 
     todoCompleted[idCheckbox] = checkbox.checked;
 
-    /* Meilleur maniere d'ajouter une ligne sur le texte si la checkbox est sur "true" :
+    //line-through si checkbox checked
     const tdLabel = checkbox.parentElement.nextElementSibling;
     if (checkbox.checked) {
         tdLabel.style.textDecoration = 'line-through';
     } else {
         tdLabel.style.textDecoration = 'none';
     }
-    */
+    
 
-    // Methode du prof
+    /* Methode du prof
     const tousLesTD = document.getElementsByTagName('td');
     const identifiantCase = parseInt(idCheckbox) + 1;
     const texteBrut = tousLesTD[(identifiantCase-1) * 3 + 2].innerText;
@@ -161,6 +161,7 @@ function changeDone(event) {
         tousLesTD[(identifiantCase-1) * 3 + 2].innerHTML = texteBrut;
     }
 
+    */
     console.log("La checkbox ", checkbox.id, " est cochée : ", checkbox.checked);
     console.log(todoCompleted);
     
