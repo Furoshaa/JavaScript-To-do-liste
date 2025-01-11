@@ -127,6 +127,15 @@ function addTodoToTable(newTache) {
     inputDone.type = 'checkbox';
     inputDone.id = todoCompleted.length;
     inputDone.addEventListener('change', changeDone);
+
+    // Ajout de l'event listener sur le tdDone pour cocher la checkbox
+    tdDone.addEventListener('click', function(e) {
+        // Prevent multiple triggers if checkbox itself is clicked
+        if (e.target !== inputDone) {
+            inputDone.click();
+        }
+    });
+
     tdLabel.textContent = newTache;
 
     console.log(todoCompleted);
