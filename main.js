@@ -45,21 +45,6 @@ function addTodoToTable(newTache) {
 
         document.getElementById('buttonAdd').after(filter);
 
-        //Event listener pour le filtre + fonction
-        filter.addEventListener('change', function() {
-            const rows = document.querySelectorAll('tbody tr');
-            rows.forEach(row => {
-                const checkbox = row.querySelector('input');
-                if (this.value === 'all') {
-                    row.style.display = '';
-                } else if (this.value === 'completed') {
-                    row.style.display = checkbox.checked ? '' : 'none';
-                } else {
-                    row.style.display = !checkbox.checked ? '' : 'none';
-                }
-            });
-        });
-
         //Creation du tableau HTML
         table = document.createElement('table');
         document.body.appendChild(table);
