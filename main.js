@@ -180,11 +180,6 @@ function deleteTodo(row) {
     });
 };
 
-// Nouvelle fonction pour créer le filtre
-function createFilterSelect() {
-    
-}
-
 // Fonction de filtrage
 function filterTodo(value) {
     const rows = document.querySelectorAll('tbody tr');
@@ -198,7 +193,7 @@ function filterTodo(value) {
             row.style.display = !checkbox.checked ? '' : 'none';
         }
     });
-}
+};
 
 // Event listeners
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
