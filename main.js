@@ -162,22 +162,6 @@ function changeDone(event) {
 
 };
 
-// Fonction pour filtrer les taches
-function filterTodo(filterType) {
-    const rows = document.querySelectorAll('table tr:not(:first-child)');
-    
-    rows.forEach((row) => {
-        const checkbox = row.querySelector('input[type="checkbox"]');
-        if (filterType === 'all') {
-            row.style.display = '';
-        } else if (filterType === 'completed') {
-            row.style.display = checkbox.checked ? '' : 'none';
-        } else if (filterType === 'uncompleted') {
-            row.style.display = !checkbox.checked ? '' : 'none';
-        }
-    });
-};
-
 // Fonction pour supprimer une tache
 function deleteTodo(row) {
     if (!row) return;
@@ -194,19 +178,40 @@ function deleteTodo(row) {
         row.cells[0].textContent = idx + 1;
         row.querySelector('input[type="checkbox"]').id = idx;
     });
+};
+
+// Nouvelle fonction pour créer le filtre
+function createFilterSelect() {
+    
 }
 
-// Event listener pour ajouter une tache quand button click
+// Fonction de filtrage
+function filterTodo(value) {
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        const checkbox = row.querySelector('input');
+        if (value === 'all') {
+            row.style.display = '';
+        } else if (value === 'completed') {
+            row.style.display = checkbox.checked ? '' : 'none';
+        } else {
+            row.style.display = !checkbox.checked ? '' : 'none';
+        }
+    });
+}
+
+// Event listeners
 document.getElementById('buttonAdd').addEventListener('click', addTodo);
 
-//Event listener pour ajouter une tache quand touche entrée
 document.getElementById('inputAdd').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         addTodo();
     }
 });
 
-//Event listener pour le filtre
-document.getElementById('filterSelect').addEventListener('change', function(e) {
-    filterTodo(e.target.value);
+// Event listener pour le filtre
+document.addEventListener('change', function(e) {
+    if (e.target && e.target.id === 'filterSelect') {
+        filterTodo(e.target.value);
+    }
 });
